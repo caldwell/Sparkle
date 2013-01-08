@@ -90,7 +90,7 @@
 #if MAC_OS_X_VERSION_MAX_ALLOWED <= MAC_OS_X_VERSION_10_6
 enum {
     NSXMLNodeLoadExternalEntitiesSameOriginOnly = 1UL << 15,
-}
+};
 #endif
 
 - (void)downloadDidFinish:(NSURLDownload *)aDownload
