@@ -134,7 +134,7 @@
             
             if (![manager copyItemAtPath:fromPath toPath:toPath error:&error])
             {
-                SULog(@"Couldn't copy item: %@ : %@", error, error.userInfo ? error.userInfo : @"");
+                SULog(@"Couldn't copy item: %@ : %@", error, error.userInfo ? (id)error.userInfo : (id)@"");
                 goto reportError;
             }
         }
