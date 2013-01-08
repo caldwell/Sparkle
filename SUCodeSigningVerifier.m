@@ -12,6 +12,7 @@
 
 @implementation SUCodeSigningVerifier
 
+#if MAC_OS_X_VERSION_MAX_ALLOWED < MAC_OS_X_VERSION_10_6
 extern OSStatus SecCodeCopySelf(SecCSFlags flags, SecCodeRef *self)  __attribute__((weak_import));
 
 extern OSStatus SecCodeCopyDesignatedRequirement(SecStaticCodeRef code, SecCSFlags flags, SecRequirementRef *requirement) __attribute__((weak_import));
@@ -19,6 +20,7 @@ extern OSStatus SecCodeCopyDesignatedRequirement(SecStaticCodeRef code, SecCSFla
 extern OSStatus SecStaticCodeCreateWithPath(CFURLRef path, SecCSFlags flags, SecStaticCodeRef *staticCode) __attribute__((weak_import));
 
 extern OSStatus SecStaticCodeCheckValidityWithErrors(SecStaticCodeRef staticCode, SecCSFlags flags, SecRequirementRef requirement, CFErrorRef *errors) __attribute__((weak_import));
+#endif
 
 
 + (BOOL)codeSignatureIsValidAtPath:(NSString *)destinationPath error:(NSError **)error
