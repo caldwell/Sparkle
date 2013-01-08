@@ -17,6 +17,8 @@
 
 - (void)extractDMGWithPassword:(NSString *)password;
 - (BOOL)isEncrypted:(NSData*)resultData;
+- (void)requestPasswordFromDelegate;
+- (void)continueWithPassword:(NSString *)password;
 @end
 
 #endif
