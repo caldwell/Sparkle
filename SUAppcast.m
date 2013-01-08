@@ -32,7 +32,11 @@
 }
 @end
 
+#if MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_7
 @interface SUAppcast () <NSURLDownloadDelegate>
+#else
+@interface SUAppcast ()
+#endif
 - (void)reportError:(NSError *)error;
 - (NSXMLNode *)bestNodeInNodes:(NSArray *)nodes;
 @end
@@ -82,6 +86,12 @@
     [downloadFilename release];
     downloadFilename = [path copy];
 }
+
+#if MAC_OS_X_VERSION_MAX_ALLOWED < MAC_OS_X_VERSION_10_7
+enum {
+    NSXMLNodeLoadExternalEntitiesSameOriginOnly = 1UL << 15,
+}
+#endif
 
 - (void)downloadDidFinish:(NSURLDownload *)aDownload
 {    

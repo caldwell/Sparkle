@@ -21,7 +21,9 @@
 #import "SUCodeSigningVerifier.h"
 #import "SUUpdater_Private.h"
 
+#if MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_7
 @interface SUBasicUpdateDriver () <NSURLDownloadDelegate>; @end
+#endif
 
 
 @implementation SUBasicUpdateDriver
