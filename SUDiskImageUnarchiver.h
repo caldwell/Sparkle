@@ -15,6 +15,8 @@
 @interface SUDiskImageUnarchiver : SUUnarchiver {
 }
 
+- (void)extractDMGWithPassword:(NSString *)password;
+- (BOOL)isEncrypted:(NSData*)resultData;
 @end
 
 #endif

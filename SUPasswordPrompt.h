@@ -22,5 +22,9 @@
 - (id)initWithHost:(SUHost *)aHost;
 - (NSInteger)run;
 - (NSString *)password;
+- (NSString *)name;
+- (void)setName:(NSString *)name;
+- (NSImage *)icon;
+- (void)setIcon:(NSImage *)icon;
 
 @end
