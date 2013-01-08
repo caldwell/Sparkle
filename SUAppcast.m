@@ -32,7 +32,7 @@
 }
 @end
 
-#if MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_7
+#if MAC_OS_X_VERSION_MAX_ALLOWED > MAC_OS_X_VERSION_10_6
 @interface SUAppcast () <NSURLDownloadDelegate>
 #else
 @interface SUAppcast ()
@@ -87,7 +87,7 @@
     downloadFilename = [path copy];
 }
 
-#if MAC_OS_X_VERSION_MAX_ALLOWED < MAC_OS_X_VERSION_10_7
+#if MAC_OS_X_VERSION_MAX_ALLOWED <= MAC_OS_X_VERSION_10_6
 enum {
     NSXMLNodeLoadExternalEntitiesSameOriginOnly = 1UL << 15,
 }
@@ -105,7 +105,7 @@ enum {
 	if (downloadFilename)
 	{
         NSUInteger options = 0;
-        if (NSAppKitVersionNumber < NSAppKitVersionNumber10_7) {
+        if (NSAppKitVersionNumber <= NSAppKitVersionNumber10_6) {
             // In order to avoid including external entities when parsing the appcast (a potential security vulnerability; see https://github.com/andymatuschak/Sparkle/issues/169), we ask NSXMLDocument to "tidy" the XML first. This happens to remove these external entities; it wouldn't be a future-proof approach, but it worked in these historical versions of OS X, and we have a more rigorous approach for 10.7+.
             options = NSXMLDocumentTidyXML;
         } else {
